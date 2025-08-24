@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ing, Russell Arturo Mestas Rojas - Perfil Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 6px solid rgba(255,255,255,0.3);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav {
+            background: #34495e;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            display: block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav a:hover::before {
+            left: 100%;
+        }
+
+        .nav a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .education-item, .publication-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .publication-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .education-item h3, .publication-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .year {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .contact-item .icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .nav {
+                flex-direction: column;
+            }
+            
+            .nav a {
+                padding: 15px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-img">MG</div>
+            <h1>Ing. Russell Mestas</h1>
+            <p class="subtitle">Ingeniero Electrónico | Redes Móviles | Especialista de Radio</p>
+        </header>
+
+        <nav class="nav">
+            <a href="#perfil">Perfil</a>
+            <a href="#educacion">Educación</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#publicaciones">Publicaciones</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="content">
+            <section id="perfil" class="section fade-in">
+                <h2>Perfil Profesional</h2>
+                <p>Ingeniero Electrónico. Especialista en optimización de redes móviles 4G. He participado en planes de optimización a nivel nacional</p>
+                <p>Mi trabajo se enfoca en optimizar la propagación de señales móviles, mejorar el rendimiento y realizar pruebas de manera que se cumpla la velocidades minimas ofrecidas por el operador</p>
+                
+                <div class="skills">
+                    <div class="skill-item">
+                        <h4>Redes Móviles</h4>
+                        <p>Tems Investigation y pocket</p>
+                    </div>                   
+                </div>
+            </section>
+
+            <section id="educacion" class="section fade-in">
+                <h2>Formación Académica</h2>
+                
+                <div class="education-item">
+                    <span class="year">2009 - 2013</span>
+                    <h3>Ingeniero Electrónico</h3>
+                    <p><strong>Universidad Andina Nestor Caceres Velasquez</strong></p>
+                    <p>Tesis: "Optimización de Red 4G Banda Advance Wireless Services Extendida Para Mejorar la Calidad de Señal Móvil 
+                    en la Zona Comercial de la Ciudad de Juliaca"</p>                    
+                </div>
+                
+            </section>
+
+            <section id="experiencia" class="section fade-in">
+                <h2>Experiencia Profesional</h2>
+                
+                <div class="education-item">
+                    <span class="year">2018 - Presente</span>
+                    <h3>Especialista de Radio</h3>
+                    <p><strong>Viettel Perú SAC</strong></p>
+                    <p>• Analizar Parametros de Calidad de Redes Móviles</p>
+                    <p>• Optimización de Redes Móviles</p>
+                    <p>• Atender las observaciones de Osiptel, MTC y Usuarios Finales</p>
+                </div>
+
+                <div class="education-item">
+                    <span class="year">2016 - 2017</span>
+                    <h3>Especialista en Telecomunicaciones</h3>
+                    <p><strong>Dirección Regional de Transportes y Comunicaciones Puno</strong></p>
+                    <p>• Planificar y Coordinar las Acciones de Mantenimiento de los sistemas de telecomunicaciones
+                    a Cargo(CPACC)</p>
+                </div>              
+            </section>
+
+            <section id="publicaciones" class="section fade-in">
+                <h2>Publicaciones Destacadas</h2>
+                
+                <div class="publication-item">
+                    <span class="year">2024</span>
+                    <h3>Optimización de Red 4G Banda Advance Wireless Services Extendida Para Mejorar la Calidad de Señal Móvil 
+                    en la Zona Comercial de la Ciudad de Juliaca</h3>                   
+                </div>                
+            </section>
+
+            <section id="contacto" class="section fade-in">
+                <h2>Información de Contacto</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📧</div>
+                        <h4>Email</h4>
+                        <p>russell.mestas@bitel.com.pe</p>
+                        <p>arturo.mr711@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <h4>Teléfono</h4>
+                        <p>+51 322403</p>
+                        <p>+51 930228857</p>
+                    </div>                 
+           
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Ing. Russell Mestas. Todos los derechos reservados.</p>
+            <p>Última actualización: Agosto 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Efecto de aparición suave para las secciones
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Navegación suave
+        document.querySelectorAll('.nav a').forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Efecto hover dinámico
+        document.querySelectorAll('.section, .education-item, .publication-item, .contact-item, .skill-item').forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = item.classList.contains('section') ? 'translateY(-5px)' : 
+                                     item.classList.contains('education-item') || item.classList.contains('publication-item') ? 'translateX(10px)' :
+                                     'translateY(-5px)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
